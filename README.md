@@ -24,12 +24,12 @@ StackSave allows users to:
 
 | Contract | Address | Purpose |
 |----------|---------|---------|
-| **StackSaveOctant** | `0xa9EDF625508bE4AcE93d3013B0cC4A5c3BD69F1a` | Main savings contract |
-| **OctantYieldRouter** | `0x26eDe7de9AD22F05D283FAB6436E50016b60bDdF` | Routes yield donations to Octant |
-| **USDC Vault (Lite)** | `0x08677300cbdF89d2C0b55Ae124eB3e7ae70b21C1` | USDC savings vault |
-| **DAI Vault (Lite)** | `0x4D489e902D14B05E1cC00dd53334C18eD24c9a73` | DAI savings vault |
-| **WETH Vault (Pro)** | `0x340E9C7B5b7BedbE15cAC0E9A98e44CF324eb511` | WETH savings vault |
-| **TokenFaucet** | `0x81782AE5663A590A8758996a8c1a20956279f888` | Test token distributor |
+| **StackSaveOctant** | `0x8672C6b92d4C66A82F85CD724C08c8593a79d6a3` | Main savings contract |
+| **OctantYieldRouter** | `0x4C796ea1840927Fe851a9dA30A679268b33e841d` | Routes yield donations to Octant |
+| **USDC Vault (Lite)** | `0x7C233fBD91BE4d11ba233f5372dF3045C14eAC30` | USDC savings vault |
+| **DAI Vault (Lite)** | `0xeF85F786c9Cc624a6A02D9710DDD2AC1f42391BD` | DAI savings vault |
+| **WETH Vault (Pro)** | `0x6a67A0e395774d8C95CAF7c479292F52D2A80220` | WETH savings vault |
+| **TokenFaucet** | `0xbCA64F501Ab77518250ba17d7B9101eD1644E998` | Test token distributor |
 
 ---
 
