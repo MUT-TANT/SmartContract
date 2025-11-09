@@ -1,0 +1,300 @@
+No files changed, compilation skipped
+Traces:
+  [10786934] DeployStackSave::run()
+    ├─ [0] VM::envUint("PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD
+    ├─ [0] console::log("Deploying StackSave contracts...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Deployer:", 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] console::log("\n1. Deploying OctantYieldRouter...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [1032827] → new OctantYieldRouter@0x06600Dc1d1D3e41e4136B3DB8701092260642e9b
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD)
+    │   ├─ emit TokenWhitelisted(token: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, status: true)
+    │   ├─ emit TokenWhitelisted(token: 0x6B175474E89094C44Da98b954EedeAC495271d0F, status: true)
+    │   ├─ emit TokenWhitelisted(token: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, status: true)
+    │   └─ ← [Return] 4455 bytes of code
+    ├─ [0] console::log("YieldRouter deployed at:", OctantYieldRouter: [0x06600Dc1d1D3e41e4136B3DB8701092260642e9b]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\n2. Deploying StackSaveOctant...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [1734137] → new StackSaveOctant@0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD)
+    │   └─ ← [Return] 8098 bytes of code
+    ├─ [0] console::log("StackSave deployed at:", StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\n3. Deploying USDC Vault (Lite)...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2109061] → new MorphoVaultAdapter@0x369dC82ecfA661C34CEA83C276B7B2030F3585a1
+    │   ├─ [9664] 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48::decimals() [staticcall]
+    │   │   ├─ [2381] 0x43506849D7C04F9138D1A2050bbF3A0c054402dd::decimals() [delegatecall]
+    │   │   │   └─ ← [Return] 6
+    │   │   └─ ← [Return] 6
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2])
+    │   ├─ [27462] 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   ├─ [26673] 0x43506849D7C04F9138D1A2050bbF3A0c054402dd::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]) [delegatecall]
+    │   │   │   ├─ emit Approval(owner: MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1], spender: 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 9751 bytes of code
+    ├─ [0] console::log("USDC Vault deployed at:", MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\n4. Deploying DAI Vault (Lite)...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2096689] → new MorphoVaultAdapter@0x251943FB4460A66e05931651C7FddC8A419Ec96a
+    │   ├─ [240] 0x6B175474E89094C44Da98b954EedeAC495271d0F::decimals() [staticcall]
+    │   │   └─ ← [Return] 18
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2])
+    │   ├─ [24514] 0x6B175474E89094C44Da98b954EedeAC495271d0F::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   ├─ emit Approval(owner: MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a], spender: 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 9751 bytes of code
+    ├─ [0] console::log("DAI Vault deployed at:", MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\n5. Deploying WETH Vault (Pro)...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2098799] → new MorphoVaultAdapter@0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb
+    │   ├─ [2444] 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2::decimals() [staticcall]
+    │   │   └─ ← [Return] 18
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2])
+    │   ├─ [24420] 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   ├─ emit Approval(owner: MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb], spender: 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] 9751 bytes of code
+    ├─ [0] console::log("WETH Vault deployed at:", MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\n6. Deploying TokenFaucet...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [848005] → new TokenFaucet@0xbB8ab7880FF208fda6363d7872BE96A4676Fb98a
+    │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD)
+    │   └─ ← [Return] 4116 bytes of code
+    ├─ [0] console::log("TokenFaucet deployed at:", TokenFaucet: [0xbB8ab7880FF208fda6363d7872BE96A4676Fb98a]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [90973] TokenFaucet::configureToken(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, 100000000 [1e8])
+    │   ├─ emit TokenConfigured(token: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, claimAmount: 100000000 [1e8])
+    │   └─ ← [Stop]
+    ├─ [69073] TokenFaucet::configureToken(0x6B175474E89094C44Da98b954EedeAC495271d0F, 500000000000000000000 [5e20])
+    │   ├─ emit TokenConfigured(token: 0x6B175474E89094C44Da98b954EedeAC495271d0F, claimAmount: 500000000000000000000 [5e20])
+    │   └─ ← [Stop]
+    ├─ [69073] TokenFaucet::configureToken(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, 100000000000000000 [1e17])
+    │   ├─ emit TokenConfigured(token: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, claimAmount: 100000000000000000 [1e17])
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Faucet configured") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\n7. Configuring vaults in StackSave...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [91744] StackSaveOctant::configureVault(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, 0, MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1])
+    │   ├─ emit VaultConfigured(currency: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, mode: 0, vaultAddress: MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1])
+    │   └─ ← [Stop]
+    ├─ [69844] StackSaveOctant::configureVault(0x6B175474E89094C44Da98b954EedeAC495271d0F, 0, MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a])
+    │   ├─ emit VaultConfigured(currency: 0x6B175474E89094C44Da98b954EedeAC495271d0F, mode: 0, vaultAddress: MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a])
+    │   └─ ← [Stop]
+    ├─ [69844] StackSaveOctant::configureVault(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, 1, MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb])
+    │   ├─ emit VaultConfigured(currency: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, mode: 1, vaultAddress: MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb])
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Vaults configured") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] console::log("\n========================================") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("DEPLOYMENT SUMMARY") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("========================================") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("StackSaveOctant:", StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("OctantYieldRouter:", OctantYieldRouter: [0x06600Dc1d1D3e41e4136B3DB8701092260642e9b]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("USDC Vault (Lite):", MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("DAI Vault (Lite):", MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("WETH Vault (Pro):", MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("TokenFaucet:", TokenFaucet: [0xbB8ab7880FF208fda6363d7872BE96A4676Fb98a]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("========================================") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\nConfiguration:") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Morpho Blue:", 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Octant Recipient:", 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Reward Pool:", 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Treasury:", 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("========================================") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("\nNext Steps:") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("1. Verify contracts on Etherscan") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("2. Update Octant PaymentSplitter address if needed") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("3. Transfer ownership if required") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("4. Refill faucet with test tokens") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("5. Test complete flow on frontend") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("========================================") [staticcall]
+    │   └─ ← [Stop]
+    └─ ← [Stop]
+
+
+Script ran successfully.
+
+== Logs ==
+  Deploying StackSave contracts...
+  Deployer: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD
+  
+1. Deploying OctantYieldRouter...
+  YieldRouter deployed at: 0x06600Dc1d1D3e41e4136B3DB8701092260642e9b
+  
+2. Deploying StackSaveOctant...
+  StackSave deployed at: 0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2
+  
+3. Deploying USDC Vault (Lite)...
+  USDC Vault deployed at: 0x369dC82ecfA661C34CEA83C276B7B2030F3585a1
+  
+4. Deploying DAI Vault (Lite)...
+  DAI Vault deployed at: 0x251943FB4460A66e05931651C7FddC8A419Ec96a
+  
+5. Deploying WETH Vault (Pro)...
+  WETH Vault deployed at: 0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb
+  
+6. Deploying TokenFaucet...
+  TokenFaucet deployed at: 0xbB8ab7880FF208fda6363d7872BE96A4676Fb98a
+  Faucet configured
+  
+7. Configuring vaults in StackSave...
+  Vaults configured
+  
+========================================
+  DEPLOYMENT SUMMARY
+  ========================================
+  StackSaveOctant: 0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2
+  OctantYieldRouter: 0x06600Dc1d1D3e41e4136B3DB8701092260642e9b
+  USDC Vault (Lite): 0x369dC82ecfA661C34CEA83C276B7B2030F3585a1
+  DAI Vault (Lite): 0x251943FB4460A66e05931651C7FddC8A419Ec96a
+  WETH Vault (Pro): 0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb
+  TokenFaucet: 0xbB8ab7880FF208fda6363d7872BE96A4676Fb98a
+  ========================================
+  
+Configuration:
+  Morpho Blue: 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb
+  Octant Recipient: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD
+  Reward Pool: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD
+  Treasury: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD
+  ========================================
+  
+Next Steps:
+  1. Verify contracts on Etherscan
+  2. Update Octant PaymentSplitter address if needed
+  3. Transfer ownership if required
+  4. Refill faucet with test tokens
+  5. Test complete flow on frontend
+  ========================================
+
+## Setting up 1 EVM.
+==========================
+Simulated On-chain Traces:
+
+  [1032827] → new OctantYieldRouter@0x06600Dc1d1D3e41e4136B3DB8701092260642e9b
+    ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD)
+    ├─ emit TokenWhitelisted(token: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, status: true)
+    ├─ emit TokenWhitelisted(token: 0x6B175474E89094C44Da98b954EedeAC495271d0F, status: true)
+    ├─ emit TokenWhitelisted(token: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, status: true)
+    └─ ← [Return] 4455 bytes of code
+
+  [1734137] → new StackSaveOctant@0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2
+    ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD)
+    └─ ← [Return] 8098 bytes of code
+
+  [2109061] → new MorphoVaultAdapter@0x369dC82ecfA661C34CEA83C276B7B2030F3585a1
+    ├─ [9664] 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48::decimals() [staticcall]
+    │   ├─ [2381] 0x43506849D7C04F9138D1A2050bbF3A0c054402dd::decimals() [delegatecall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 6
+    ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2])
+    ├─ [27462] 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   ├─ [26673] 0x43506849D7C04F9138D1A2050bbF3A0c054402dd::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]) [delegatecall]
+    │   │   ├─ emit Approval(owner: MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1], spender: 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   │   └─ ← [Return] true
+    │   └─ ← [Return] true
+    └─ ← [Return] 9751 bytes of code
+
+  [2096689] → new MorphoVaultAdapter@0x251943FB4460A66e05931651C7FddC8A419Ec96a
+    ├─ [240] 0x6B175474E89094C44Da98b954EedeAC495271d0F::decimals() [staticcall]
+    │   └─ ← [Return] 18
+    ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2])
+    ├─ [24514] 0x6B175474E89094C44Da98b954EedeAC495271d0F::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   ├─ emit Approval(owner: MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a], spender: 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   └─ ← [Return] true
+    └─ ← [Return] 9751 bytes of code
+
+  [2098799] → new MorphoVaultAdapter@0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb
+    ├─ [2444] 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2::decimals() [staticcall]
+    │   └─ ← [Return] 18
+    ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: StackSaveOctant: [0x5D0ABA418d0a1aE463346E2d591aF8863e1580c2])
+    ├─ [24420] 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2::approve(0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   ├─ emit Approval(owner: MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb], spender: 0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb, value: 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77])
+    │   └─ ← [Return] true
+    └─ ← [Return] 9751 bytes of code
+
+  [848005] → new TokenFaucet@0xbB8ab7880FF208fda6363d7872BE96A4676Fb98a
+    ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0x00d1e028A70ee8D422bFD1132B50464E2D21FBcD)
+    └─ ← [Return] 4116 bytes of code
+
+  [92973] TokenFaucet::configureToken(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, 100000000 [1e8])
+    ├─ emit TokenConfigured(token: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, claimAmount: 100000000 [1e8])
+    └─ ← [Stop]
+
+  [75873] TokenFaucet::configureToken(0x6B175474E89094C44Da98b954EedeAC495271d0F, 500000000000000000000 [5e20])
+    ├─ emit TokenConfigured(token: 0x6B175474E89094C44Da98b954EedeAC495271d0F, claimAmount: 500000000000000000000 [5e20])
+    └─ ← [Stop]
+
+  [75873] TokenFaucet::configureToken(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, 100000000000000000 [1e17])
+    ├─ emit TokenConfigured(token: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, claimAmount: 100000000000000000 [1e17])
+    └─ ← [Stop]
+
+  [93744] StackSaveOctant::configureVault(0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, 0, MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1])
+    ├─ emit VaultConfigured(currency: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48, mode: 0, vaultAddress: MorphoVaultAdapter: [0x369dC82ecfA661C34CEA83C276B7B2030F3585a1])
+    └─ ← [Stop]
+
+  [76644] StackSaveOctant::configureVault(0x6B175474E89094C44Da98b954EedeAC495271d0F, 0, MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a])
+    ├─ emit VaultConfigured(currency: 0x6B175474E89094C44Da98b954EedeAC495271d0F, mode: 0, vaultAddress: MorphoVaultAdapter: [0x251943FB4460A66e05931651C7FddC8A419Ec96a])
+    └─ ← [Stop]
+
+  [76644] StackSaveOctant::configureVault(0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, 1, MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb])
+    ├─ emit VaultConfigured(currency: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2, mode: 1, vaultAddress: MorphoVaultAdapter: [0x89CEd9DEEd0461Dd1E8F91C248F0b915DfBFEEEb])
+    └─ ← [Stop]
+
+
+==========================
+
+Chain 8
+
+Estimated gas price: 0.000000003 gwei
+
+Estimated total gas used for script: 15266587
+
+Estimated amount required: 0.000000000045799761 ETH
+
+==========================
+
+Transactions saved to: C:/Users/harfi/Documents/Project/octant/SmartContract/broadcast\Deploy.s.sol\8\run-latest.json
+
+Sensitive values saved to: C:/Users/harfi/Documents/Project/octant/SmartContract/cache\Deploy.s.sol\8\run-latest.json
+
+Error: Transaction Failure: 0xc9cd0110aca031348c987c60a9430025b1beb60e68358070f967e57cc3893761
+Transaction Failure: 0x49c239556118678a1eb060ce9905835f90c6a3af95f57ad5f206c3a43d2a8dd7
+Transaction Failure: 0x5a239fddb9de7dbabb733eb46ccfbe8837872387eacb84b00907a01cbed4708b

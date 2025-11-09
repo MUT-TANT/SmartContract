@@ -136,6 +136,32 @@ contract DeployStackSave is Script {
         stackSave.configureVault(WETH, StackSaveOctant.Mode.Pro, address(wethVaultPro));
         console.log("Vaults configured");
 
+        // 8. Create DAI market on Morpho Blue
+        console.log("\n8. Creating DAI market on Morpho Blue...");
+        IMorpho morpho = IMorpho(MORPHO);
+        MarketParams memory daiMarketParams = _getDAIMarket();
+
+        // Enable IRM (wrapped in try-catch to handle if already enabled)
+        try morpho.enableIrm(daiMarketParams.irm) {
+            console.log("IRM enabled:", daiMarketParams.irm);
+        } catch {
+            console.log("IRM already enabled or permission denied");
+        }
+
+        // Enable LLTV (wrapped in try-catch to handle if already enabled)
+        try morpho.enableLltv(daiMarketParams.lltv) {
+            console.log("LLTV enabled:", daiMarketParams.lltv);
+        } catch {
+            console.log("LLTV already enabled or permission denied");
+        }
+
+        // Create DAI/WETH market
+        try morpho.createMarket(daiMarketParams) {
+            console.log("DAI/WETH market created successfully");
+        } catch {
+            console.log("Market creation failed - may already exist");
+        }
+
         vm.stopBroadcast();
 
         // Print deployment summary
